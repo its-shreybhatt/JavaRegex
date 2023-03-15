@@ -8,6 +8,7 @@ public class Regex {
         regex.firstName();
         regex.lastName();
         regex.emailId();
+        regex.mobileNumber();
     }
 
     public void firstName() {
@@ -27,5 +28,9 @@ public class Regex {
     public void emailId() {
         System.out.println("Result for emailId = " +Pattern.compile("[a-z]+[.]?[a-z]{0,}[@][a-z]+[.][a-z]{2,4}[.]?[a-z]{0,2}")
                 .matcher("abc@bridgelabz.com").matches());
+    }
+
+    public void mobileNumber() {
+        System.out.println("Result for Mobile Num = " + Pattern.matches("^[0-9]{2}[ ][0-9]{10}$", "91 9557885533"));
     }
 }
