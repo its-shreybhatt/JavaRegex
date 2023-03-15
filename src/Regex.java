@@ -9,6 +9,7 @@ public class Regex {
         regex.lastName();
         regex.emailId();
         regex.mobileNumber();
+        regex.passwordOne();
     }
 
     public void firstName() {
@@ -31,6 +32,11 @@ public class Regex {
     }
 
     public void mobileNumber() {
-        System.out.println("Result for Mobile Num = " + Pattern.matches("^[0-9]{2}[ ][0-9]{10}$", "91 9557885533"));
+        System.out.println("Result for Mobile Num = " + Pattern.matches("^[0-9]{2}[ ][0-9]{10}$","91 9557885533"));
+    }
+    public void passwordOne() {
+        Pattern pattern = Pattern.compile("[A-Za-z]{8,}");
+        Matcher matcher = pattern.matcher("shreybhatt");
+        System.out.println("Result for Min 8 Character = " + matcher.matches());
     }
 }
