@@ -9,8 +9,9 @@ public class Regex {
         regex.lastName();
         regex.emailId();
         regex.mobileNumber();
-        regex.passwordOne();
-        regex.passwordTwo();
+        regex.password();
+        regex.upperCasePassword();
+        regex.numericPassword();
     }
 
     public void firstName() {
@@ -35,16 +36,25 @@ public class Regex {
     public void mobileNumber() {
         System.out.println("Result for Mobile Num = " + Pattern.matches("^[0-9]{2}[ ][0-9]{10}$","91 9557885533"));
     }
-    public void passwordOne() {
+    public void password() {
         Pattern pattern = Pattern.compile("[A-Za-z]{8,}");
         Matcher matcher = pattern.matcher("shreybhatt");
         System.out.println("Result for Min 8 Character = " + matcher.matches());
     }
-    public void passwordTwo() {
+    public void upperCasePassword() {
         Pattern patternTwo = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z]).+${8,}");
         Matcher matcherTwo = patternTwo.matcher("shreyBhatt");
         if (matcherTwo.matches()==true){
             System.out.println("Password is Correct with atleast one UpperCase");
+        }else {
+            System.out.println("Password is incorrect");
+        }
+    }
+    public void numericPassword() {
+        Pattern patternTwo = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).+${8,}");
+        Matcher matcherTwo = patternTwo.matcher("shreyBhatt2");
+        if (matcherTwo.matches()==true){
+            System.out.println("Password is Correct with atleast one UpperCase and one Numeric");
         }else {
             System.out.println("Password is incorrect");
         }
