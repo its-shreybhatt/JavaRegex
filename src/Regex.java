@@ -10,6 +10,7 @@ public class Regex {
         regex.emailId();
         regex.mobileNumber();
         regex.passwordOne();
+        regex.passwordTwo();
     }
 
     public void firstName() {
@@ -38,5 +39,14 @@ public class Regex {
         Pattern pattern = Pattern.compile("[A-Za-z]{8,}");
         Matcher matcher = pattern.matcher("shreybhatt");
         System.out.println("Result for Min 8 Character = " + matcher.matches());
+    }
+    public void passwordTwo() {
+        Pattern patternTwo = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z]).+${8,}");
+        Matcher matcherTwo = patternTwo.matcher("shreyBhatt");
+        if (matcherTwo.matches()==true){
+            System.out.println("Password is Correct with atleast one UpperCase");
+        }else {
+            System.out.println("Password is incorrect");
+        }
     }
 }
