@@ -12,6 +12,7 @@ public class Regex {
         regex.password();
         regex.upperCasePassword();
         regex.numericPassword();
+        regex.specialCharPassword();
     }
 
     public void firstName() {
@@ -55,6 +56,15 @@ public class Regex {
         Matcher matcherTwo = patternTwo.matcher("shreyBhatt2");
         if (matcherTwo.matches()==true){
             System.out.println("Password is Correct with atleast one UpperCase and one Numeric");
+        }else {
+            System.out.println("Password is incorrect");
+        }
+    }
+    public void specialCharPassword() {
+        Pattern patternTwo = Pattern.compile("^(?=.+[a-z])(?=.+[A-Z])(?=.+[0-9])(?=.+[-+_!@#$%^&*., ?]).+${8,}");
+        Matcher matcherTwo = patternTwo.matcher("sGrey4Bha@ttyy");
+        if (matcherTwo.matches()==true){
+            System.out.println("Password is Correct with exact one special Character");
         }else {
             System.out.println("Password is incorrect");
         }
